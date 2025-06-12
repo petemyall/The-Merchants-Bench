@@ -46,9 +46,9 @@ nav {
 nav::after {
   content: "";
   background: url('images/truck.png') no-repeat bottom right;
-  background-size: 80px;
-  width: 80px;
-  height: 60px;
+  background-size: 120px;
+  width: 120px;
+  height: 90px;
   position: absolute;
   bottom: 0;
   right: 1rem;
