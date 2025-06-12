@@ -8,11 +8,11 @@ body {
 }
 
 h1, h2, h3 {
-  color: #e28743;
+  color: ##7b5d42;
 }
 
 header {
-  background-color: #7b5d42;
+  background-color: #e28743;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
