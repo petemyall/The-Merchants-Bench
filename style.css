@@ -35,6 +35,26 @@ nav {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+nav {
+  background: #f05a28;
+  padding: 0.8rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+nav::after {
+  content: "";
+  background: url('images/truck.png') no-repeat bottom right;
+  background-size: 80px;
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+  pointer-events: none;
+}
+
 nav a {
   margin: 0 1rem;
   color: white;
