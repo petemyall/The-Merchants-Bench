@@ -4,7 +4,14 @@ body {
   background-color: #f9f6f2;
   color: #333;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem; /* Wider horizontal padding */
+}
+
+section {
+  margin: 2rem auto;
+  max-width: 800px; /* Optional: limit width on large screens */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
 }
 
 /* Header styling */
