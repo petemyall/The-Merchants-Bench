@@ -1,102 +1,29 @@
-/* General page layout */
 body {
   font-family: Georgia, serif;
   background-color: #f9f6f2;
   color: #333;
   margin: 0;
-  padding: 0 2rem; /* Wider horizontal padding */
+  padding: 0 2rem;
 }
-
-section {
-  margin: 2rem auto;
-  max-width: 800px; /* Optional: limit width on large screens */
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Header styling */
-header {
-  background-color: #7b5d42;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-header p {
-  margin: 0.5rem 0 0;
-  font-size: 1.1rem;
-}
-
-/* Navigation menu */
-nav {
-  background: #d2b48c;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-nav a {
-  margin: 0 1rem;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a.button {
-  display: inline-block;
-  background-color: #7b5d42;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  margin: 0.5rem auto;
-  text-decoration: none;
-}
-
-nav a.button:hover {
-  background-color: #5e4632;
-}
-
-/* Main content sections */
-main {
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 1rem;
-}
-
-section h2 {
+h1, h2, h3 {
   color: #7b5d42;
 }
-
-/* Footer styling */
-footer {
-  background-color: #eee;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+section {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
 }
-
-/* Calculator-specific styling */
-label,
-input {
+label, input {
   display: block;
   margin: 0.5rem 0;
   font-size: 1rem;
 }
-
-input[type=\"number\"] {
+input[type="number"] {
   padding: 0.3rem;
   width: 100%;
   max-width: 200px;
 }
-
 button {
   padding: 0.5rem 1rem;
   background-color: #7b5d42;
@@ -104,15 +31,20 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 0.5rem;
 }
-
 button:hover {
   background-color: #5e4632;
 }
-
+a {
+  color: #7b5d42;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .result {
-  margin-top: 1rem;
+  margin-left: 1rem;
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 1.1rem;
+}
+.hidden {
+  display: none;
 }

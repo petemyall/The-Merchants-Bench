@@ -19,14 +19,14 @@
 
   <section>
     <h3>Materials Estimate</h3>
-    <p><strong>House Bricks:</strong></p>
-    <div class="result" id="brickResult"></div>
+    <p><a href="#" onclick="toggle('brickResult'); return false;"><strong>House Bricks</strong></a></p>
+    <div class="result hidden" id="brickResult"></div>
 
-    <p><strong>Concrete Blocks:</strong></p>
-    <div class="result" id="blockResult"></div>
+    <p><a href="#" onclick="toggle('blockResult'); return false;"><strong>Concrete Blocks</strong></a></p>
+    <div class="result hidden" id="blockResult"></div>
 
-    <p><strong>Decking Boards:</strong></p>
-    <div class="result" id="deckingResult"></div>
+    <p><a href="#" onclick="toggle('deckingResult'); return false;"><strong>Decking Boards</strong></a></p>
+    <div class="result hidden" id="deckingResult"></div>
   </section>
 
   <section>
@@ -39,6 +39,11 @@
   </section>
 
   <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
     function calculateArea() {
       let length = parseFloat(document.getElementById('areaLength').value);
       let width = parseFloat(document.getElementById('areaWidth').value);
@@ -55,7 +60,7 @@
         let deck100 = Math.ceil(area / 0.1);
         let deck125 = Math.ceil(area / 0.125);
         let deck150 = Math.ceil(area / 0.15);
-        document.getElementById('deckingResult').textContent = 
+        document.getElementById('deckingResult').textContent =
           `${deck100}m of 100mm boards, ${deck125}m of 125mm boards, or ${deck150}m of 150mm boards.`;
       }
     }
