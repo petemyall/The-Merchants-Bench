@@ -4,11 +4,12 @@ body {
   background-color: #f9f6f2;
   color: #333;
   margin: 0;
-  padding: 0 1rem;
+  padding: 0;
 }
 
-h1, h2, h3 {
+h1, h2 {
   color: #005aa7;
+  margin: 0.5rem 0;
 }
 
 header {
@@ -28,51 +29,26 @@ header p {
   font-size: 1.1rem;
 }
 
-nav {
-  background: #f05a28;
-  padding: 0.8rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.tab-bar {
+  display: flex;
+  background-color: #f05a28;
+  padding-left: 1rem;
+  overflow-x: auto;
+  border-bottom: 2px solid #ccc;
 }
 
-nav {
-  background: #f05a28;
-  padding: 0.8rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: relative;
-}
-
-nav::after {
-  content: "";
-  background: url('images/truck.png') no-repeat bottom right;
-  background-size: 120px;
-  width: 120px;
-  height: 90px;
-  position: absolute;
-  bottom: 0;
-  right: 1rem;
-  pointer-events: none;
-}
-
-nav a {
-  margin: 0 1rem;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a.button {
-  display: inline-block;
-  background-color: white;
+.tab {
+  background: white;
   color: #005aa7;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  margin-right: 0.5rem;
+  border-radius: 10px 10px 0 0;
   text-decoration: none;
   font-weight: bold;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-nav a.button:hover {
+.tab:hover {
   background-color: #f9f6f2;
 }
 
@@ -87,66 +63,6 @@ main {
 
 section {
   margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ccc;
-}
-
-label, input {
-  display: block;
-  margin: 0.5rem 0;
-  font-size: 1rem;
-}
-
-input[type="number"] {
-  padding: 0.5rem;
-  width: 100%;
-  max-width: 300px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background-color: #005aa7;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
-button:hover {
-  background-color: #f05a28;
-}
-
-.result {
-  margin: 1rem 0 1.5rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.hidden {
-  display: none;
-}
-
-a {
-  color: #005aa7;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-a.button {
-  display: inline-block;
-  background-color: #005aa7;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 2rem;
-}
-
-a.button:hover {
-  background-color: #f05a28;
 }
 
 footer {
