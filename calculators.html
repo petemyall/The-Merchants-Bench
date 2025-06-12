@@ -1,0 +1,49 @@
+<!-- calculators.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Area & Volume Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f9f6f2; }
+    label, input { display: block; margin: 0.5rem 0; }
+    .result { margin-top: 1rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Quick Builder's Calculator</h1>
+
+  <h2>Area (m²)</h2>
+  <label>Length (m): <input type="number" id="areaLength" step="0.01"></label>
+  <label>Width (m): <input type="number" id="areaWidth" step="0.01"></label>
+  <button onclick="calculateArea()">Calculate Area</button>
+  <div class="result" id="areaResult"></div>
+
+  <h2>Volume (m³)</h2>
+  <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
+  <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
+  <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
+  <button onclick="calculateVolume()">Calculate Volume</button>
+  <div class="result" id="volResult"></div>
+
+  <script>
+    function calculateArea() {
+      let length = parseFloat(document.getElementById('areaLength').value);
+      let width = parseFloat(document.getElementById('areaWidth').value);
+      if (!isNaN(length) && !isNaN(width)) {
+        document.getElementById('areaResult').textContent = `Area: ${length * width} m²`;
+      }
+    }
+
+    function calculateVolume() {
+      let l = parseFloat(document.getElementById('volLength').value);
+      let w = parseFloat(document.getElementById('volWidth').value);
+      let h = parseFloat(document.getElementById('volHeight').value);
+      if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
+        document.getElementById('volResult').textContent = `Volume: ${l * w * h} m³`;
+      }
+    }
+  </script>
+</body>
+</html>
