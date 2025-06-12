@@ -12,14 +12,11 @@ h1, h2, h3 {
 }
 
 header {
-  background-color: #f05a28;
+  background-color: #005aa7;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
-  border-bottom: 5px solid #005aa7;
-  header h1 {
-  color: white;
-  }
+  border-bottom: 5px solid #f05a28;
 }
 
 header p {
