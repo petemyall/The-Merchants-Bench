@@ -9,21 +9,34 @@
 <body>
   <h1>Quick Builder's Calculator</h1>
 
-  <h2>Area (m²)</h2>
-  <label>Length (m): <input type="number" id="areaLength" step="0.01"></label>
-  <label>Width (m): <input type="number" id="areaWidth" step="0.01"></label>
-  <button onclick="calculateArea()">Calculate Area</button>
-  <div class="result" id="areaResult"></div>
-  <div class="result" id="brickResult"></div>
-  <div class="result" id="blockResult"></div>
-  <div class="result" id="deckingResult"></div>
+  <section>
+    <h2>Surface Area (m²)</h2>
+    <label>Length (m): <input type="number" id="areaLength" step="0.01"></label>
+    <label>Width (m): <input type="number" id="areaWidth" step="0.01"></label>
+    <button onclick="calculateArea()">Calculate Area</button>
+    <div class="result" id="areaResult"></div>
+  </section>
 
-  <h2>Volume (m³)</h2>
-  <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
-  <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
-  <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
-  <button onclick="calculateVolume()">Calculate Volume</button>
-  <div class="result" id="volResult"></div>
+  <section>
+    <h3>Materials Estimate</h3>
+    <p><strong>House Bricks:</strong></p>
+    <div class="result" id="brickResult"></div>
+
+    <p><strong>Concrete Blocks:</strong></p>
+    <div class="result" id="blockResult"></div>
+
+    <p><strong>Decking Boards:</strong></p>
+    <div class="result" id="deckingResult"></div>
+  </section>
+
+  <section>
+    <h2>Volume (m³)</h2>
+    <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
+    <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
+    <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
+    <button onclick="calculateVolume()">Calculate Volume</button>
+    <div class="result" id="volResult"></div>
+  </section>
 
   <script>
     function calculateArea() {
@@ -31,19 +44,19 @@
       let width = parseFloat(document.getElementById('areaWidth').value);
       if (!isNaN(length) && !isNaN(width)) {
         let area = length * width;
-        document.getElementById('areaResult').textContent = `Area: ${area.toFixed(2)} m²`;
+        document.getElementById('areaResult').textContent = `Total Area: ${area.toFixed(2)} m²`;
 
         let bricks = Math.ceil(area * 60);
-        document.getElementById('brickResult').textContent = `Approx. ${bricks} standard house bricks needed.`;
+        document.getElementById('brickResult').textContent = `${bricks} standard house bricks (approx. 60 per m²).`;
 
         let blocks = Math.ceil(area * 10);
-        document.getElementById('blockResult').textContent = `Approx. ${blocks} standard blocks needed.`;
+        document.getElementById('blockResult').textContent = `${blocks} standard concrete blocks (approx. 10 per m²).`;
 
         let deck100 = Math.ceil(area / 0.1);
         let deck125 = Math.ceil(area / 0.125);
         let deck150 = Math.ceil(area / 0.15);
         document.getElementById('deckingResult').textContent = 
-          `Decking required: ${deck100}m of 100mm, ${deck125}m of 125mm, ${deck150}m of 150mm boards.`;
+          `${deck100}m of 100mm boards, ${deck125}m of 125mm boards, or ${deck150}m of 150mm boards.`;
       }
     }
 
