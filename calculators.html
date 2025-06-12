@@ -1,6 +1,5 @@
 <!-- calculators.html -->
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Area & Volume Calculator</title>
@@ -12,27 +11,40 @@
   </style>
 </head>
 <body>
-  <h1>Quick Builder's Calculator</h1>
-
-  <h2>Area (m²)</h2>
+  <h1>Quick Builder's Calculator</h1>  <h2>Area (m²)</h2>
   <label>Length (m): <input type="number" id="areaLength" step="0.01"></label>
   <label>Width (m): <input type="number" id="areaWidth" step="0.01"></label>
   <button onclick="calculateArea()">Calculate Area</button>
   <div class="result" id="areaResult"></div>
-
-  <h2>Volume (m³)</h2>
+  <div class="result" id="brickResult"></div>
+  <div class="result" id="blockResult"></div>
+  <div class="result" id="deckingResult"></div>  <h2>Volume (m³)</h2>
   <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
   <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
   <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
   <button onclick="calculateVolume()">Calculate Volume</button>
-  <div class="result" id="volResult"></div>
-
-  <script>
+  <div class="result" id="volResult"></div>  <script>
     function calculateArea() {
       let length = parseFloat(document.getElementById('areaLength').value);
       let width = parseFloat(document.getElementById('areaWidth').value);
       if (!isNaN(length) && !isNaN(width)) {
-        document.getElementById('areaResult').textContent = `Area: ${length * width} m²`;
+        let area = length * width;
+        document.getElementById('areaResult').textContent = `Area: ${area.toFixed(2)} m²`;
+
+        // Brick estimates (standard brick = 215x65mm, ~60 bricks/m² for stretcher bond)
+        let bricks = Math.ceil(area * 60);
+        document.getElementById('brickResult').textContent = `Approx. ${bricks} standard house bricks needed.`;
+
+        // Block estimates (standard block = 440x215mm, ~10 blocks/m²)
+        let blocks = Math.ceil(area * 10);
+        document.getElementById('blockResult').textContent = `Approx. ${blocks} standard blocks needed.`;
+
+        // Decking estimates
+        let deck100 = Math.ceil(area / 0.1);
+        let deck125 = Math.ceil(area / 0.125);
+        let deck150 = Math.ceil(area / 0.15);
+        document.getElementById('deckingResult').textContent = 
+          `Decking required: ${deck100}m of 100mm, ${deck125}m of 125mm, ${deck150}m of 150mm boards.`;
       }
     }
 
@@ -41,9 +53,8 @@
       let w = parseFloat(document.getElementById('volWidth').value);
       let h = parseFloat(document.getElementById('volHeight').value);
       if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
-        document.getElementById('volResult').textContent = `Volume: ${l * w * h} m³`;
+        document.getElementById('volResult').textContent = `Volume: ${(l * w * h).toFixed(2)} m³`;
       }
     }
-  </script>
-</body>
+  </script></body>
 </html>
