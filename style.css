@@ -1,3 +1,4 @@
+
 body {
   font-family: Georgia, serif;
   background-color: #f9f6f2;
@@ -5,25 +6,30 @@ body {
   margin: 0;
   padding: 0 2rem;
 }
+
 h1, h2, h3 {
   color: #7b5d42;
 }
+
 section {
   margin: 2rem auto;
   max-width: 800px;
   padding-bottom: 1rem;
   border-bottom: 1px solid #ccc;
 }
+
 label, input {
   display: block;
   margin: 0.5rem 0;
   font-size: 1rem;
 }
+
 input[type="number"] {
-  padding: 0.3rem;
+  padding: 0.4rem;
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
 }
+
 button {
   padding: 0.5rem 1rem;
   background-color: #7b5d42;
@@ -31,20 +37,39 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 0.5rem;
 }
+
 button:hover {
   background-color: #5e4632;
 }
+
+.result {
+  margin: 1rem 0 1.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
 a {
   color: #7b5d42;
   text-decoration: underline;
   cursor: pointer;
 }
-.result {
-  margin-left: 1rem;
-  font-size: 1rem;
-  font-weight: bold;
+
+a.button {
+  display: inline-block;
+  background-color: #7b5d42;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 2rem;
 }
-.hidden {
-  display: none;
+
+a.button:hover {
+  background-color: #5e4632;
 }
