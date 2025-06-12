@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <title>Area & Volume Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f9f6f2; }
-    label, input { display: block; margin: 0.5rem 0; }
-    .result { margin-top: 1rem; font-weight: bold; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Quick Builder's Calculator</h1>  <h2>Area (m²)</h2>
@@ -31,15 +27,12 @@
         let area = length * width;
         document.getElementById('areaResult').textContent = `Area: ${area.toFixed(2)} m²`;
 
-        // Brick estimates (standard brick = 215x65mm, ~60 bricks/m² for stretcher bond)
         let bricks = Math.ceil(area * 60);
         document.getElementById('brickResult').textContent = `Approx. ${bricks} standard house bricks needed.`;
 
-        // Block estimates (standard block = 440x215mm, ~10 blocks/m²)
         let blocks = Math.ceil(area * 10);
         document.getElementById('blockResult').textContent = `Approx. ${blocks} standard blocks needed.`;
 
-        // Decking estimates
         let deck100 = Math.ceil(area / 0.1);
         let deck125 = Math.ceil(area / 0.125);
         let deck150 = Math.ceil(area / 0.15);
