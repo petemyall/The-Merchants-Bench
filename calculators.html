@@ -19,13 +19,14 @@
 
   <section>
     <h3>Materials Estimate</h3>
-    <p><a href="#" onclick="toggle('brickResult'); return false;"><strong>House Bricks</strong></a></p>
+
+    <p><a href="#" onclick="showMaterial('brickResult')"><strong>House Bricks</strong></a></p>
     <div class="result hidden" id="brickResult"></div>
 
-    <p><a href="#" onclick="toggle('blockResult'); return false;"><strong>Concrete Blocks</strong></a></p>
+    <p><a href="#" onclick="showMaterial('blockResult')"><strong>Concrete Blocks</strong></a></p>
     <div class="result hidden" id="blockResult"></div>
 
-    <p><a href="#" onclick="toggle('deckingResult'); return false;"><strong>Decking Boards</strong></a></p>
+    <p><a href="#" onclick="showMaterial('deckingResult')"><strong>Decking Boards</strong></a></p>
     <div class="result hidden" id="deckingResult"></div>
   </section>
 
@@ -38,29 +39,26 @@
     <div class="result" id="volResult"></div>
   </section>
 
+  <p><a href="index.html" class="button">⬅ Return to Home</a></p>
+
   <script>
-    function toggle(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('hidden');
-    }
+    let lastArea = 0;
 
     function calculateArea() {
       let length = parseFloat(document.getElementById('areaLength').value);
       let width = parseFloat(document.getElementById('areaWidth').value);
       if (!isNaN(length) && !isNaN(width)) {
         let area = length * width;
+        lastArea = area;
         document.getElementById('areaResult').textContent = `Total Area: ${area.toFixed(2)} m²`;
 
-        let bricks = Math.ceil(area * 60);
-        document.getElementById('brickResult').textContent = `${bricks} standard house bricks (approx. 60 per m²).`;
-
-        let blocks = Math.ceil(area * 10);
-        document.getElementById('blockResult').textContent = `${blocks} standard concrete blocks (approx. 10 per m²).`;
+        document.getElementById('brickResult').textContent = `${Math.ceil(area * 60)} standard house bricks (approx. 60 per m²).`;
+        document.getElementById('blockResult').textContent = `${Math.ceil(area * 10)} standard concrete blocks (approx. 10 per m²).`;
 
         let deck100 = Math.ceil(area / 0.1);
         let deck125 = Math.ceil(area / 0.125);
         let deck150 = Math.ceil(area / 0.15);
-        document.getElementById('deckingResult').textContent =
+        document.getElementById('deckingResult').textContent = 
           `${deck100}m of 100mm boards, ${deck125}m of 125mm boards, or ${deck150}m of 150mm boards.`;
       }
     }
@@ -72,6 +70,14 @@
       if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
         document.getElementById('volResult').textContent = `Volume: ${(l * w * h).toFixed(2)} m³`;
       }
+    }
+
+    function showMaterial(id) {
+      if (lastArea <= 0) {
+        alert("Please enter length and width to calculate area first.");
+        return;
+      }
+      document.getElementById(id).classList.toggle("hidden");
     }
   </script>
 </body>
