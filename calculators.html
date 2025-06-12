@@ -3,50 +3,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Trade tales and timber tips from a retired builder's merchant.">
-  <title>The Merchant's Bench</title>
+  <title>Area & Volume Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <header>
-    <h1>The Merchant's Bench</h1>
-    <p>52 Years of Trade Wisdom, Humour, and Honest Advice</p>
-  </header>
+  <h1>Quick Builder's Calculator</h1>
 
-  <nav>
-    <a href="#stories">Stories</a>
-    <a href="#tips">Tips & Advice</a>
-    <a href="#history">Merchant Memories</a>
-    <a href="calculators.html" class="button">Builder's Calculator</a>
-  </nav>
+  <h2>Area (m²)</h2>
+  <label>Length (m): <input type="number" id="areaLength" step="0.01"></label>
+  <label>Width (m): <input type="number" id="areaWidth" step="0.01"></label>
+  <button onclick="calculateArea()">Calculate Area</button>
+  <div class="result" id="areaResult"></div>
+  <div class="result" id="brickResult"></div>
+  <div class="result" id="blockResult"></div>
+  <div class="result" id="deckingResult"></div>
 
-  <main>
-    <section id="stories">
-      <h2>Counter Tales</h2>
-      <p>From forgotten deliveries to flying pallets, these are the tales that made the trade worth turning up for.</p>
-    </section>
+  <h2>Volume (m³)</h2>
+  <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
+  <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
+  <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
+  <button onclick="calculateVolume()">Calculate Volume</button>
+  <div class="result" id="volResult"></div>
 
-    <section id="tips">
-      <h2>Practical Tips for DIYers</h2>
-      <p>What every homeowner should know before walking into a builder's yard. No fluff. No nonsense.</p>
-    </section>
+  <script>
+    function calculateArea() {
+      let length = parseFloat(document.getElementById('areaLength').value);
+      let width = parseFloat(document.getElementById('areaWidth').value);
+      if (!isNaN(length) && !isNaN(width)) {
+        let area = length * width;
+        document.getElementById('areaResult').textContent = `Area: ${area.toFixed(2)} m²`;
 
-    <section id="history">
-      <h2>A Merchant’s Memory Lane</h2>
-      <p>I started work in September 1971, straight from school with little more than an O Level in maths and absolutely no idea what a builder’s merchant was—or what one did.</p>
+        let bricks = Math.ceil(area * 60);
+        document.getElementById('brickResult').textContent = `Approx. ${bricks} standard house bricks needed.`;
 
-      <p>Back then, I was at school in Erith, just across the Thames from the massive Ford Dagenham plant. Careers advice was straightforward: if you were half decent at metalwork and woodwork, you were told to become a toolmaker. I didn't really know what a toolmaker was, either.</p>
+        let blocks = Math.ceil(area * 10);
+        document.getElementById('blockResult').textContent = `Approx. ${blocks} standard blocks needed.`;
 
-      <p>Not that it mattered. After finishing school, I packed up and moved to join my family—who’d relocated three months earlier to Bracknell, some 40 miles away. While I sat my exams, I’d stayed with my grandmother in Chelsea. For three months I commuted across London every day: bus to Charing Cross, train to Erith, bus to school—then all over again in reverse. Character-building stuff, especially for a teenager.</p>
+        let deck100 = Math.ceil(area / 0.1);
+        let deck125 = Math.ceil(area / 0.125);
+        let deck150 = Math.ceil(area / 0.15);
+        document.getElementById('deckingResult').textContent = 
+          `Decking required: ${deck100}m of 100mm, ${deck125}m of 125mm, ${deck150}m of 150mm boards.`;
+      }
+    }
 
-      <p>Those early days were a blur of learning on the job, sweeping warehouses, fetching bags of cement, and slowly getting to grips with the strange but fascinating world of building materials. It was the start of a 52-year journey—one I never saw coming, but wouldn’t trade for anything.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Pete Myall. All rights reserved. Built with timber, tea, and a bit of code.</p>
-  </footer>
+    function calculateVolume() {
+      let l = parseFloat(document.getElementById('volLength').value);
+      let w = parseFloat(document.getElementById('volWidth').value);
+      let h = parseFloat(document.getElementById('volHeight').value);
+      if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
+        document.getElementById('volResult').textContent = `Volume: ${(l * w * h).toFixed(2)} m³`;
+      }
+    }
+  </script>
 </body>
 </html>
