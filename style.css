@@ -13,7 +13,6 @@ header.banner {
   padding: 2rem 1rem;
   text-align: center;
   border-bottom: 6px solid #f05a28;
-  position: relative;
 }
 
 header h1 {
@@ -77,14 +76,24 @@ footer {
   height: 90px;
   background: url('images/truck.png') no-repeat;
   background-size: contain;
-  position: absolute;
-  top: 120px;
-  left: -140px;
-  animation: drive-in 2.5s ease-out forwards;
+  margin: 1rem auto;
+  animation: drive-in-bounce 2.5s ease-out forwards;
 }
 
-@keyframes drive-in {
-  0% { left: -140px; }
-  60% { left: 50%; transform: translateX(-50%); }
-  100% { left: 50%; transform: translateX(-50%) scale(1); }
+@keyframes drive-in-bounce {
+  0% {
+    transform: translateX(-150%);
+  }
+  70% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(-5px);
+  }
+  90% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
