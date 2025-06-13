@@ -95,3 +95,12 @@ footer {
   85% { transform: translateX(-2%); }
   100% { transform: translateX(0); }
 }
+.button {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  background: #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #000;
+}
