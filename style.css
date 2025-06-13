@@ -85,12 +85,12 @@ footer {
   background-size: contain;
   position: absolute;
   bottom: 0px;
-  left: -150px;
+  left: -360px;
   animation: drive-in-yard 3s ease-out forwards;
 }
 
 @keyframes drive-in-yard {
-  0% { left: -150px; }
+  0% { left: -360px; }
   70% { left: 45%; }
   85% { left: 43%; }
   100% { left: 45%; }
