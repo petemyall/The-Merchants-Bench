@@ -2,85 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Area & Volume Calculator</title>
+  <title>Builder's Calculators</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="banner">
-  <h1>Quick Builder's Calculator</h1>
-    </header>
+    <h1>The Merchant's Branch</h1>
+    <nav class="tab-bar">
+      <a href="area.html" class="tab">Surface Area</a>
+      <a href="volume.html" class="tab">Volume</a>
+    </nav>
+  </header>
 
-  <section>
-    <h2>Surface Area (m²)</h2>
-    <label>Length (m): <input type="number" id="areaLength" step="0.01"></label>
-    <label>Width (m): <input type="number" id="areaWidth" step="0.01"></label>
-    <button onclick="calculateArea()">Calculate Area</button>
-    <div class="result" id="areaResult"></div>
-  </section>
+  <main>
+    <section>
+      <h2>Choose a Calculator</h2>
+      <p>Select one of the tools below to begin your calculations:</p>
+      <a href="area.html" class="button">🧱 Surface Area Calculator</a>
+      <a href="volume.html" class="button">📦 Volume Calculator</a>
+    </section>
 
-  <section>
-    <h3>Materials Estimate</h3>
-
-    <p><a href="#" onclick="showMaterial('brickResult')"><strong>House Bricks</strong></a></p>
-    <div class="result hidden" id="brickResult"></div>
-
-    <p><a href="#" onclick="showMaterial('blockResult')"><strong>Concrete Blocks</strong></a></p>
-    <div class="result hidden" id="blockResult"></div>
-
-    <p><a href="#" onclick="showMaterial('deckingResult')"><strong>Decking Boards</strong></a></p>
-    <div class="result hidden" id="deckingResult"></div>
-  </section>
-
-  <section>
-    <h2>Volume (m³)</h2>
-    <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
-    <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
-    <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
-    <button onclick="calculateVolume()">Calculate Volume</button>
-    <div class="result" id="volResult"></div>
-  </section>
-
-  <p><a href="index.html" class="button">⬅ Return to Home</a></p>
-
-  <script>
-    let lastArea = 0;
-
-    function calculateArea() {
-      let length = parseFloat(document.getElementById('areaLength').value);
-      let width = parseFloat(document.getElementById('areaWidth').value);
-      if (!isNaN(length) && !isNaN(width)) {
-        let area = length * width;
-        lastArea = area;
-        document.getElementById('areaResult').textContent = `Total Area: ${area.toFixed(2)} m²`;
-
-        document.getElementById('brickResult').textContent = `${Math.ceil(area * 60)} standard house bricks (approx. 60 per m²).`;
-        document.getElementById('blockResult').textContent = `${Math.ceil(area * 10)} standard concrete blocks (approx. 10 per m²).`;
-
-        let deck100 = Math.ceil(area / 0.1);
-        let deck125 = Math.ceil(area / 0.125);
-        let deck150 = Math.ceil(area / 0.15);
-        document.getElementById('deckingResult').textContent = 
-          `${deck100}m of 100mm boards, ${deck125}m of 125mm boards, or ${deck150}m of 150mm boards.`;
-      }
-    }
-
-    function calculateVolume() {
-      let l = parseFloat(document.getElementById('volLength').value);
-      let w = parseFloat(document.getElementById('volWidth').value);
-      let h = parseFloat(document.getElementById('volHeight').value);
-      if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
-        document.getElementById('volResult').textContent = `Volume: ${(l * w * h).toFixed(2)} m³`;
-      }
-    }
-
-    function showMaterial(id) {
-      if (lastArea <= 0) {
-        alert("Please enter length and width to calculate area first.");
-        return;
-      }
-      document.getElementById(id).classList.toggle("hidden");
-    }
-  </script>
+    <p><a href="index.html" class="button">⬅ Return to Home</a></p>
+  </main>
 </body>
 </html>
