@@ -71,29 +71,27 @@ footer {
   border-top: 1px solid #ccc;
 }
 
+.yard-scene {
+  background: url('images/yard.png') no-repeat bottom center;
+  background-size: cover;
+  height: 200px;
+  position: relative;
+}
+
 .truck-entry {
   width: 120px;
   height: 90px;
   background: url('images/truck.png') no-repeat;
   background-size: contain;
-  margin: 1rem auto;
-  animation: drive-in-bounce 2.5s ease-out forwards;
+  position: absolute;
+  top: 50px;
+  left: -150px;
+  animation: drive-in-yard 3s ease-out forwards;
 }
 
-@keyframes drive-in-bounce {
-  0% {
-    transform: translateX(-150%);
-  }
-  70% {
-    transform: translateX(0);
-  }
-  80% {
-    transform: translateX(-5px);
-  }
-  90% {
-    transform: translateX(3px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+@keyframes drive-in-yard {
+  0% { left: -150px; }
+  70% { left: 45%; }
+  85% { left: 43%; }
+  100% { left: 45%; }
 }
