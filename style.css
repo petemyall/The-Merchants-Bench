@@ -79,8 +79,8 @@ footer {
 }
 
 .truck-entry {
-  width: 240px;
-  height: 180px;
+  width: 480px;
+  height: 360px;
   background: url('images/truck.png') no-repeat;
   background-size: contain;
   position: absolute;
