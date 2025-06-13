@@ -74,7 +74,7 @@ footer {
 .yard-scene {
   background: url('images/yard.png') no-repeat bottom center;
   background-size: cover;
-  height: 200px;
+  height: 300px;
   position: relative;
 }
 
