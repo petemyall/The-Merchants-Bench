@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f2eb;
@@ -75,47 +76,22 @@ footer {
   background-size: cover;
   height: 300px;
   position: relative;
-}
-
-.truck-entry {
-  width: 360px;
-  height: 270px;
-  background: url('images/truck.png') no-repeat;
-  background-size: contain;
-  position: absolute;
-  bottom: 0px;
-  left: -360px;
-  animation: drive-in-yard 3s ease-out forwards;
-}
-
-@keyframes drive-in-yard {
-  0% { left: -360px; }
-  70% { left: 45%; }
-  85% { left: 43%; }
-  100% { left: 45%; }
-}
-
-
-.yard-scene {
-  background: url('images/yard.png') no-repeat bottom center;
-  background-size: cover;
-  height: 300px;
-  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   overflow: hidden;
 }
 
 .truck-entry {
-  position: absolute;
-  bottom: 0;
-  left: -360px;
   width: 360px;
   height: auto;
   animation: drive-in-yard 3s ease-out forwards;
+  transform: translateX(-150%);
 }
 
 @keyframes drive-in-yard {
-  0% { left: -360px; }
-  70% { left: 45%; }
-  85% { left: 43%; }
-  100% { left: 45%; }
+  0% { transform: translateX(-150%); }
+  70% { transform: translateX(0); }
+  85% { transform: translateX(-2%); }
+  100% { transform: translateX(0); }
 }
