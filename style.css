@@ -84,7 +84,7 @@ footer {
   background: url('images/truck.png') no-repeat;
   background-size: contain;
   position: absolute;
-  top: 150px;
+  top: 100px;
   left: -150px;
   animation: drive-in-yard 3s ease-out forwards;
 }
