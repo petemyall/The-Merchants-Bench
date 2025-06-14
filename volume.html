@@ -1,43 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Volume Calculator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 1rem;
+    }
+  </style>
 </head>
 <body>
- <header class="banner">
+  <header class="banner">
     <h1>The Merchant's Branch</h1>
     <p class="subhead">Select Area if you need more help, or go back to the home page.</p>
   </header>
   <nav class="tab-bar">
-     <a class="tab" href="index.html">Home</a>
-    <a href="area.html" class="tab">Area</a>
+    <a class="tab" href="index.html">Home</a>
+    <a href="area.html" class="tab active">Area</a>
   </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>Volume (m³)</h2>
-      <label>Length (m): <input type="number" id="volLength" step="0.01"></label>
-      <label>Width (m): <input type="number" id="volWidth" step="0.01"></label>
-      <label>Height (m): <input type="number" id="volHeight" step="0.01"></label>
-      <button onclick="calculateVolume()">Calculate Volume</button>
-      <div class="result" id="volResult"></div>
-    </section>
+  <h1>Volume Calculator</h1>
+  <div class="input-group">
+    <label for="volLength">Length (m):</label>
+    <input type="number" id="volLength" min="0" step="any" />
+    <label for="volWidth">Width (m):</label>
+    <input type="number" id="volWidth" min="0" step="any" />
+    <label for="volDepth">Depth (m):</label>
+    <input type="number" id="volDepth" min="0" step="any" />
+    <button class="material-button" onclick="calculateVolume()">Calculate</button>
+  </div>
 
-    <p><a href="index.html" class="button">⬅ Return to Home</a></p>
-  </main>
+  <div class="input-group">
+    <p id="volumeDisplay"><em>Volume will appear here.</em></p>
+  </div>
+
+  <div>
+    <button class="material-button" onclick="showVolumeCalculation('concrete')">Concrete</button>
+    <button class="material-button" onclick="showVolumeCalculation('gravel')">10mm Gravel/Shingle</button>
+  </div>
+
+  <div class="modal" id="volModal">
+    <div class="modal-content">
+      <p id="volResult">Result goes here</p>
+      <button class="close" onclick="closeVolModal()">Close</button>
+    </div>
+  </div>
 
   <script>
+    let currentVolume = 0;
+
     function calculateVolume() {
-      let l = parseFloat(document.getElementById('volLength').value);
-      let w = parseFloat(document.getElementById('volWidth').value);
-      let h = parseFloat(document.getElementById('volHeight').value);
-      if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
-        document.getElementById('volResult').textContent = `Volume: ${(l * w * h).toFixed(2)} m³`;
+      const length = parseFloat(document.getElementById("volLength").value);
+      const width = parseFloat(document.getElementById("volWidth").value);
+      const depth = parseFloat(document.getElementById("volDepth").value);
+      if (!length || !width || !depth || length <= 0 || width <= 0 || depth <= 0) {
+        alert("Please enter valid length, width and depth.");
+        return;
       }
+
+      currentVolume = length * width * depth;
+      document.getElementById("volumeDisplay").textContent = `Volume: ${currentVolume.toFixed(2)} m³`;
+    }
+
+    function showVolumeCalculation(material) {
+      if (!currentVolume || currentVolume <= 0) {
+        alert("Please calculate the volume first.");
+        return;
+      }
+
+      let result = '';
+      switch (material) {
+        case 'concrete':
+          result = `${Math.ceil(currentVolume * 1)} cubic metres of concrete needed.`;
+          break;
+        case 'gravel':
+          result = `${Math.ceil(currentVolume * 1)} cubic metres of 10mm gravel/shingle needed.`;
+          break;
+      }
+
+      document.getElementById("volResult").textContent = result;
+      document.getElementById("volModal").style.display = "flex";
+    }
+
+    function closeVolModal() {
+      document.getElementById("volModal").style.display = "none";
     }
   </script>
 </body>
