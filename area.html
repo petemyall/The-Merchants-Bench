@@ -21,6 +21,17 @@
       margin-bottom: 1rem;
     }
 
+    label {
+      display: inline-block;
+      width: 80px;
+    }
+
+    input[type="number"] {
+      padding: 0.4rem;
+      margin-right: 1rem;
+      width: 100px;
+    }
+
     .material-button {
       display: inline-block;
       margin: 0.5rem;
@@ -69,8 +80,10 @@
 <body>
   <h1>Area Calculator</h1>
   <div class="input-group">
-    <label for="areaInput">Enter area in m²:</label>
-    <input type="number" id="areaInput" min="0" />
+    <label for="lengthInput">Length (m):</label>
+    <input type="number" id="lengthInput" min="0" step="any" />
+    <label for="widthInput">Width (m):</label>
+    <input type="number" id="widthInput" min="0" step="any" />
   </div>
 
   <div>
@@ -90,28 +103,30 @@
 
   <script>
     function showCalculation(material) {
-      const area = parseFloat(document.getElementById("areaInput").value);
-      if (!area || area <= 0) {
-        alert("Please enter a valid area first.");
+      const length = parseFloat(document.getElementById("lengthInput").value);
+      const width = parseFloat(document.getElementById("widthInput").value);
+      if (!length || !width || length <= 0 || width <= 0) {
+        alert("Please enter valid length and width.");
         return;
       }
 
+      const area = length * width;
       let result = '';
       switch (material) {
         case 'bricks':
-          result = `${Math.ceil(area * 60)} standard house bricks needed for ${area} m².`;
+          result = `${Math.ceil(area * 60)} standard house bricks needed for ${area.toFixed(2)} m².`;
           break;
         case 'blocks':
-          result = `${Math.ceil(area * 10)} standard blocks needed for ${area} m².`;
+          result = `${Math.ceil(area * 10)} standard blocks needed for ${area.toFixed(2)} m².`;
           break;
         case 'decking100':
-          result = `${Math.ceil(area / 0.1)} metres of 100mm decking needed for ${area} m².`;
+          result = `${Math.ceil(area / 0.1)} metres of 100mm decking needed for ${area.toFixed(2)} m².`;
           break;
         case 'decking125':
-          result = `${Math.ceil(area / 0.125)} metres of 125mm decking needed for ${area} m².`;
+          result = `${Math.ceil(area / 0.125)} metres of 125mm decking needed for ${area.toFixed(2)} m².`;
           break;
         case 'decking150':
-          result = `${Math.ceil(area / 0.15)} metres of 150mm decking needed for ${area} m².`;
+          result = `${Math.ceil(area / 0.15)} metres of 150mm decking needed for ${area.toFixed(2)} m².`;
           break;
       }
 
